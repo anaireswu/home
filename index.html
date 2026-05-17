@@ -957,7 +957,7 @@
 
     .youtube-picker {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 8px;
       margin-top: 12px;
     }
@@ -1883,38 +1883,25 @@
         <div class="section-header">
           <span class="section-kicker">channel hub</span>
           <h2 class="section-title"><em>Videos</em> in one place</h2>
-          <p class="section-copy">Recent uploads from my YouTube channel, plus a quick path to open the channel and subscribe.</p>
+          <p class="section-copy">The newest upload from my YouTube channel, plus a quick path to open the channel and subscribe.</p>
         </div>
         <div class="grid">
           <article class="text-card youtube-feature">
             <div>
               <span class="youtube-handle">@anairesx</span>
               <h3>My channel</h3>
-              <p>Watch my newest uploads here, or open the full channel on YouTube for playlists, shorts, comments, and everything I am sharing next.</p>
+              <p>Watch my newest upload here, or open the full channel on YouTube for playlists, shorts, comments, and everything I am sharing next.</p>
               <div class="button-row">
                 <a class="button button-primary" href="https://www.youtube.com/@anairesx" target="_blank" rel="noopener">Open channel</a>
                 <a class="button button-secondary" href="https://www.youtube.com/@anairesx?sub_confirmation=1" target="_blank" rel="noopener">Subscribe</a>
                 <button class="button button-secondary youtube-copy-btn" type="button" data-youtube-copy>Copy link</button>
               </div>
-              <p class="youtube-now" id="youtubeNowText">Playing: Newest upload</p>
-              <div class="youtube-picker" aria-label="Choose a recent upload">
-                <button class="youtube-video-chip is-active" type="button" data-youtube-index="0" data-youtube-label="Newest upload" aria-pressed="true"><span>01</span>Newest upload</button>
-                <button class="youtube-video-chip" type="button" data-youtube-index="1" data-youtube-label="Second newest upload" aria-pressed="false"><span>02</span>Second newest</button>
-                <button class="youtube-video-chip" type="button" data-youtube-index="2" data-youtube-label="Third newest upload" aria-pressed="false"><span>03</span>Third newest</button>
-                <button class="youtube-video-chip" type="button" data-youtube-index="3" data-youtube-label="Fourth newest upload" aria-pressed="false"><span>04</span>Fourth newest</button>
-              </div>
-              <div class="tag-row"><span class="tag">recent uploads</span><span class="tag">youtube</span><span class="tag">channel</span></div>
             </div>
             <div class="youtube-stage">
               <div class="youtube-embed">
                 <iframe id="youtubeFrame" src="https://www.youtube.com/embed/videoseries?list=UUQAWAmtayNr-v8QJagRLRaQ&index=0&rel=0" title="Recent videos from Anaires X" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
               </div>
-              <div class="youtube-controls" aria-label="YouTube player controls">
-                <button class="youtube-control-btn" type="button" data-youtube-prev>Previous</button>
-                <button class="youtube-control-btn" type="button" data-youtube-random>Shuffle</button>
-                <button class="youtube-control-btn" type="button" data-youtube-next>Next</button>
-              </div>
-              <p class="youtube-status" id="youtubeStatus" aria-live="polite">Pick a recent upload or shuffle the channel playlist.</p>
+              <p class="youtube-status" id="youtubeStatus" aria-live="polite">Showing the newest upload from the channel.</p>
             </div>
           </article>
         </div>
