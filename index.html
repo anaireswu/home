@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!--
@@ -176,30 +176,45 @@
     .top-nav a {
       flex: 0 0 auto;
       padding: 7px 12px;
+      border: 1px solid transparent;
       border-radius: 999px;
       color: var(--muted);
       font-size: 0.76rem;
       line-height: 1;
       text-decoration: none;
       white-space: nowrap;
-      transition: background 160ms ease, color 160ms ease;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
       -webkit-tap-highlight-color: transparent;
     }
 
-    .top-nav a:hover,
-    .top-nav a[aria-current="page"] {
+    .top-nav a:hover {
       color: var(--text);
       background: rgba(160, 100, 255, 0.22);
     }
 
+    .top-nav a[aria-current="page"],
+    .top-nav a[aria-current],
+    .top-nav a.is-active,
     .top-nav .portfolio-button {
       color: var(--text);
       background: rgba(140, 80, 240, 0.22);
-      border: 1px solid rgba(180, 120, 255, 0.30);
+      border-color: rgba(180, 120, 255, 0.30);
+      box-shadow: 0 0 18px rgba(140, 80, 240, 0.16);
     }
 
+    .top-nav a[aria-current="page"]:hover,
+    .top-nav a[aria-current]:hover,
+    .top-nav a.is-active:hover,
     .top-nav .portfolio-button:hover {
       background: rgba(160, 100, 255, 0.38);
+      border-color: rgba(200, 150, 255, 0.42);
+    }
+
+    .top-nav a.is-active {
+      color: var(--text) !important;
+      background: rgba(140, 80, 240, 0.22) !important;
+      border-color: rgba(180, 120, 255, 0.30) !important;
+      box-shadow: 0 0 18px rgba(140, 80, 240, 0.16) !important;
     }
 
 
@@ -1527,7 +1542,6 @@
     <a href="/youtube/" data-page="youtube">YouTube</a>
     <a href="/thoughts/" data-page="thoughts">Thoughts</a>
     <a href="/about-me/" data-page="aboutMe">About me</a>
-    <a class="portfolio-button" href="https://anairesportfolio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open Anaires Wu portfolio in a new tab">Portfolio</a>
   </nav>
 
   <!--
@@ -1557,7 +1571,7 @@
           <p>A personal site for the things I love: cozy movies, favorite songs, study notes, wellness routines, quiet devotional moments, art that inspires me, the sweet chaos of my pets, my YouTube channel, and links to the apps I created.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="/apps/" data-page="apps">My Apps</a>
-            <a class="button button-secondary" href="/youtube/" data-page="youtube">My YouTube channel</a>
+            <a class="button button-secondary" href="/youtube/" data-page="youtube">Youtube</a>
           </div>
         </div>
       </header>
@@ -2436,7 +2450,43 @@
       </section>
       <!-- ── END INTJ-T ── -->
 
-    </section></section>
+      <!-- ── PORTFOLIO EMBED / ABOUT ME ── -->
+      <section class="section about-portfolio-section" id="aboutPortfolioPreview">
+        <div class="about-portfolio-shell" data-portfolio-card>
+          <div class="about-portfolio-copy">
+            <span class="section-kicker">portfolio</span>
+            <h2 class="section-title"><em>My</em> portfolio preview</h2>
+            <p class="section-copy">A live window into my portfolio, so the page feels connected, interactive, and easy to explore without leaving the site.</p>
+            <div class="about-portfolio-actions">
+              <a class="button button-primary" href="https://anairesportfolio.vercel.app/" target="_blank" rel="noopener noreferrer">Open portfolio</a>
+              <button class="button button-secondary about-portfolio-refresh" type="button" data-portfolio-refresh>Refresh preview</button>
+            </div>
+          </div>
+
+          <div class="about-portfolio-preview" aria-label="Portfolio preview">
+            <div class="about-portfolio-glow" aria-hidden="true"></div>
+            <div class="about-portfolio-browser">
+              <div class="about-portfolio-bar">
+                <div class="about-portfolio-dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </div>
+                <span class="about-portfolio-url">anairesportfolio.vercel.app</span>
+              </div>
+              <iframe
+                class="about-portfolio-frame"
+                src="https://anairesportfolio.vercel.app/"
+                title="Anaíres Wu portfolio preview"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allow="fullscreen">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- ── END PORTFOLIO EMBED ── -->
+
+    </section>
 
     <style>
       /* ── INTJ Section ── */
@@ -2723,6 +2773,155 @@
         .intj-letter { width: 42px; height: 52px; font-size: 1.8rem; }
         .intj-t { width: 36px; font-size: 1.2rem; }
       }
+
+      /* ── Portfolio embed on About Me ── */
+      .about-portfolio-section {
+        padding-top: clamp(24px, 5vw, 56px);
+      }
+
+      .about-portfolio-shell {
+        --tilt-x: 0deg;
+        --tilt-y: 0deg;
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(260px, 0.82fr) minmax(340px, 1.18fr);
+        gap: clamp(20px, 4vw, 36px);
+        align-items: center;
+        padding: clamp(20px, 4vw, 34px);
+        border: 1px solid rgba(200, 144, 240, 0.22);
+        border-radius: 24px;
+        background:
+          radial-gradient(circle at 18% 20%, rgba(200, 144, 240, 0.18), transparent 34%),
+          radial-gradient(circle at 88% 18%, rgba(90, 100, 230, 0.18), transparent 30%),
+          rgba(18, 10, 38, 0.72);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+        overflow: hidden;
+        backdrop-filter: blur(18px);
+        transform: perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+        transition: transform 180ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      }
+
+      .about-portfolio-shell:hover {
+        border-color: rgba(200, 144, 240, 0.42);
+        box-shadow: 0 26px 90px rgba(100, 60, 220, 0.24), 0 18px 60px rgba(0, 0, 0, 0.34);
+      }
+
+      .about-portfolio-copy {
+        position: relative;
+        z-index: 2;
+      }
+
+      .about-portfolio-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .about-portfolio-refresh {
+        cursor: pointer;
+        font-family: var(--font-body);
+      }
+
+      .about-portfolio-preview {
+        position: relative;
+        min-width: 0;
+        z-index: 1;
+      }
+
+      .about-portfolio-glow {
+        position: absolute;
+        inset: -14%;
+        background:
+          radial-gradient(circle at 30% 30%, rgba(200, 144, 240, 0.24), transparent 34%),
+          radial-gradient(circle at 70% 72%, rgba(80, 80, 224, 0.22), transparent 34%);
+        filter: blur(24px);
+        opacity: 0.72;
+        pointer-events: none;
+      }
+
+      .about-portfolio-browser {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(220, 190, 255, 0.22);
+        border-radius: 18px;
+        background: rgba(8, 5, 18, 0.86);
+        box-shadow: 0 18px 54px rgba(0, 0, 0, 0.38);
+      }
+
+      .about-portfolio-bar {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        align-items: center;
+        gap: 12px;
+        min-height: 42px;
+        padding: 0 14px;
+        border-bottom: 1px solid rgba(220, 190, 255, 0.14);
+        background: rgba(20, 12, 40, 0.92);
+      }
+
+      .about-portfolio-dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .about-portfolio-dots span {
+        width: 9px;
+        height: 9px;
+        border-radius: 999px;
+        background: rgba(200, 144, 240, 0.55);
+      }
+
+      .about-portfolio-dots span:nth-child(2) { background: rgba(150, 120, 230, 0.55); }
+      .about-portfolio-dots span:nth-child(3) { background: rgba(110, 120, 220, 0.55); }
+
+      .about-portfolio-url {
+        min-width: 0;
+        padding: 6px 12px;
+        border: 1px solid rgba(200, 144, 240, 0.14);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--soft);
+        font-size: 0.76rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .about-portfolio-frame {
+        display: block;
+        width: 100%;
+        height: clamp(420px, 64vh, 720px);
+        border: 0;
+        background: #0b0916;
+      }
+
+      @media (max-width: 860px) {
+        .about-portfolio-shell {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .about-portfolio-shell {
+          padding: 16px;
+          border-radius: 18px;
+        }
+
+        .about-portfolio-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .about-portfolio-actions .button {
+          width: 100%;
+        }
+
+        .about-portfolio-frame {
+          height: 520px;
+        }
+      }
+
     </style>
 
     <script>
@@ -2791,6 +2990,36 @@
           result.style.opacity = '1';
         }, 180);
       }
+
+      // ── Portfolio preview interactions ──
+      (function () {
+        const card = document.querySelector('[data-portfolio-card]');
+        const frame = document.querySelector('.about-portfolio-frame');
+        const refreshBtn = document.querySelector('[data-portfolio-refresh]');
+
+        if (!card || !frame) return;
+
+        card.addEventListener('mousemove', function (event) {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+          card.style.setProperty('--tilt-x', `${(-y * 3).toFixed(2)}deg`);
+          card.style.setProperty('--tilt-y', `${(x * 3).toFixed(2)}deg`);
+        });
+
+        card.addEventListener('mouseleave', function () {
+          card.style.setProperty('--tilt-x', '0deg');
+          card.style.setProperty('--tilt-y', '0deg');
+        });
+
+        if (refreshBtn) {
+          refreshBtn.addEventListener('click', function () {
+            frame.src = 'https://anairesportfolio.vercel.app/?refresh=' + Date.now();
+          });
+        }
+      })();
+
     </script>
     <!--
       ABA THOUGHTS / PENSAMENTOS
@@ -3002,7 +3231,14 @@
       });
 
       document.querySelectorAll("[data-page]").forEach((link) => {
-        link.toggleAttribute("aria-current", link.dataset.page === page);
+        const isActivePage = link.dataset.page === page;
+        link.classList.toggle("is-active", isActivePage);
+
+        if (isActivePage) {
+          link.setAttribute("aria-current", "page");
+        } else {
+          link.removeAttribute("aria-current");
+        }
       });
 
       document.title = titles.en[page] || titles.en.home;
