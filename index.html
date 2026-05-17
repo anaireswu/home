@@ -1827,7 +1827,7 @@
   <nav class="top-nav" aria-label="Main navigation">
     <a href="/" data-page="home">Home</a>
     <a href="/apps/" data-page="apps">My Apps</a>
-    <a href="/movies/" data-page="movies">Movies</a>
+    <a href="/movies/" data-page="movies">Watched List</a>
     <a href="/music/" data-page="music">Music</a>
     <a href="/study/" data-page="study">Study</a>
     <a href="/wellness/" data-page="wellness">Wellness</a>
@@ -1863,7 +1863,7 @@
         <div class="hero-content">
           <span class="eyebrow">personal site</span>
           <h1>Anaires Wu</h1>
-          <p>A personal site for the things I love: cozy movies, favorite songs, study notes, wellness routines, quiet devotional moments, art that inspires me, the sweet chaos of my pets, my YouTube channel, and links to the apps I created.</p>
+          <p>A personal site for the things I love: favorite movies and series, favorite songs, study notes, wellness routines, quiet devotional moments, art that inspires me, the sweet chaos of my pets, my YouTube channel, and links to the apps I created.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="/apps/" data-page="apps">My Apps</a>
             <a class="button button-secondary" href="/youtube/" data-page="youtube">Youtube</a>
@@ -1887,9 +1887,9 @@
           <!-- "In the Loge" — Mary Cassatt, 1878. Domínio público. -->
           <a class="portal-card no-image" href="/movies/" data-page="movies">
             <div class="card-content">
-              <small>comfort watchlist</small>
-              <h3>Favorite movies</h3>
-              <p>Stories I rewatch, scenes that follow me around, and genres that always win me over.</p>
+              <small>movie and series diary</small>
+              <h3>Watched List</h3>
+              <p>Movies and series I watched, rated, loved, and want to keep in one place.</p>
             </div>
           </a>
 
@@ -1984,9 +1984,9 @@
     <section class="view" data-view="movies">
       <header class="hero movies-hero">
         <div class="hero-content">
-          <span class="eyebrow">favorite movies</span>
-          <h1><em>My</em> movie diary</h1>
-          <p>A personal corner for my ratings, favorite genres, movie eras, runtimes, and the titles I loved most.</p>
+          <span class="eyebrow">watched list</span>
+          <h1><em>My</em> watched list</h1>
+          <p>A personal corner for my ratings, favorite genres, favorite eras, runtimes, and the titles I loved most, from movies to series.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://www.imdb.com/user/p.qhomam3d2ckftmtximfp2zcf4a?ref_=ext_shr_lnk" target="_blank" rel="noopener noreferrer">Open my IMDb profile</a>
           </div>
@@ -1998,9 +1998,9 @@
           <div class="imdb-profile-orb" aria-hidden="true"></div>
           <div class="imdb-profile-mark" aria-hidden="true">IMDb</div>
           <div class="imdb-profile-copy">
-            <span class="section-kicker">movie profile</span>
+            <span class="section-kicker">IMDb profile</span>
             <h2 class="section-title"><em>See my</em> IMDb profile</h2>
-            <p class="section-copy">Open my public movie profile to explore ratings, lists, and the films that caught my attention.</p>
+            <p class="section-copy">Open my public profile to explore ratings, lists, movies, series, and everything that caught my attention.</p>
           </div>
           <span class="imdb-profile-action">Open profile ↗</span>
         </a>
@@ -2008,13 +2008,13 @@
 
       <section class="section tight">
         <div class="section-header">
-          <span class="section-kicker">movie diary</span>
-          <h2 class="section-title"><em>My</em> movie stats</h2>
-          <p class="section-copy">A visual snapshot of my ratings, favorite genres, most-watched eras, watch time, and highest-rated films.</p>
+          <span class="section-kicker">watched list</span>
+          <h2 class="section-title"><em>My</em> watched stats</h2>
+          <p class="section-copy">A visual snapshot of my ratings, favorite genres, most-watched eras, watch time, and highest-rated titles.</p>
         </div>
 
         <div class="movie-stats-grid" id="movieStats">
-          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Preparing movie stats</span></article>
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Preparing watched stats</span></article>
           <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Building ratings</span></article>
           <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Finding favorite genres</span></article>
           <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Calculating watch time</span></article>
@@ -2036,7 +2036,7 @@
             <div class="movie-chart-header">
               <span class="section-kicker">genres</span>
               <h3>Most watched genres</h3>
-              <p>The genres that show up most often in my movie diary.</p>
+              <p>The genres that show up most often in my watched list.</p>
             </div>
             <div class="movie-horizontal-chart" id="genreChart" aria-label="Most watched genres chart"></div>
           </article>
@@ -2044,17 +2044,17 @@
           <article class="paper movie-chart-card">
             <div class="movie-chart-header">
               <span class="section-kicker">years</span>
-              <h3>Movies by decade</h3>
+              <h3>Titles by decade</h3>
               <p>A quick look at the eras I watch the most.</p>
             </div>
-            <div class="movie-bar-chart" id="decadeChart" aria-label="Movies by decade chart"></div>
+            <div class="movie-bar-chart" id="decadeChart" aria-label="Titles by decade chart"></div>
           </article>
 
           <article class="paper movie-chart-card">
             <div class="movie-chart-header">
               <span class="section-kicker">runtime</span>
               <h3>Runtime mood</h3>
-              <p>Short watches, regular movies, and longer sessions.</p>
+              <p>Short watches, regular titles, and longer sessions.</p>
             </div>
             <div class="movie-horizontal-chart" id="runtimeChart" aria-label="Runtime mood chart"></div>
           </article>
@@ -2066,14 +2066,14 @@
           <div class="movie-list-header">
             <div>
               <span class="section-kicker">top rated</span>
-              <h3>My highest rated movies</h3>
-              <p>A quick look at the movies I rated the highest.</p>
+              <h3>My highest rated titles</h3>
+              <p>A quick look at the movies and series I rated the highest.</p>
             </div>
-            <span class="movie-live-status" id="movieCsvMeta">Loading movies...</span>
+            <span class="movie-live-status" id="movieCsvMeta">Loading watched list...</span>
           </div>
 
           <ol class="ranked-list movie-top-list" id="topMoviesList">
-            <li><strong>...</strong><div><h4>Loading movies</h4><p>Preparing my movie diary.</p></div></li>
+            <li><strong>...</strong><div><h4>Loading watched list</h4><p>Preparing my watched list.</p></div></li>
           </ol>
         </article>
       </section>
@@ -3485,7 +3485,7 @@
     const titles = {
       en: {
         home: "Anaires Wu",
-        movies: "Favorite Movies | Anaires Wu",
+        movies: "Watched List | Anaires Wu",
         music: "Favorite Music | Anaires Wu",
         study: "Study | Anaires Wu",
         wellness: "Wellness | Anaires Wu",
@@ -3504,7 +3504,7 @@
     const richTranslations = {
       en: {
         "[data-view=\"home\"] .section-title": "<em>Every page</em> holds a piece of me",
-        "[data-view=\"movies\"] .hero h1": "<em>My</em> movie diary",
+        "[data-view=\"movies\"] .hero h1": "<em>My</em> watched list",
         "[data-view=\"music\"] .hero h1": "<em>My</em> soundtrack",
         "[data-view=\"music\"] .section-title": "<em>One vibe</em> for every version",
         "[data-view=\"study\"] .hero h1": "<em>My</em> focus space",
@@ -4189,7 +4189,7 @@
         const hours = Math.round(totalMinutes / 60);
 
         statsEl.innerHTML = `
-          <article class="movie-stat-card"><small>watched</small><strong>${total}</strong><span>titles in my movie diary</span></article>
+          <article class="movie-stat-card"><small>watched</small><strong>${total}</strong><span>titles in my watched list</span></article>
           <article class="movie-stat-card"><small>average rating</small><strong>${avgPersonal.toFixed(1)}</strong><span>my average personal score</span></article>
           <article class="movie-stat-card"><small>top genre</small><strong>${escapeHTML(favoriteGenre ? favoriteGenre[0] : "-")}</strong><span>${favoriteGenre ? favoriteGenre[1] : 0} appearances in the list</span></article>
           <article class="movie-stat-card"><small>watch time</small><strong>${hours}h</strong><span>approximate total runtime</span></article>
@@ -4317,8 +4317,8 @@
         genreChartEl.innerHTML = "";
         decadeChartEl.innerHTML = "";
         runtimeChartEl.innerHTML = "";
-        topMoviesListEl.innerHTML = `<li><strong>!</strong><div><h4>Movies unavailable</h4><p>The movie diary could not be loaded right now.</p></div></li>`;
-        if (movieMetaEl) movieMetaEl.textContent = "Movies unavailable";
+        topMoviesListEl.innerHTML = `<li><strong>!</strong><div><h4>Watched list unavailable</h4><p>The watched list could not be loaded right now.</p></div></li>`;
+        if (movieMetaEl) movieMetaEl.textContent = "Watched list unavailable";
       }
 
       async function fetchCSV() {
@@ -4332,7 +4332,7 @@
             lastError = error;
           }
         }
-        throw lastError || new Error("Movies unavailable");
+        throw lastError || new Error("Watched list unavailable");
       }
 
       async function loadMovies() {
