@@ -1165,7 +1165,96 @@
     .ranked-list p { margin: 0; color: var(--muted); line-height: 1.58; font-size: 0.90rem; }
 
 
-    /* ── Movies CSV dashboard ── */
+    /* ── Movies dashboard ── */
+    .imdb-profile-card {
+      position: relative;
+      min-height: 230px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: clamp(18px, 4vw, 34px);
+      align-items: center;
+      overflow: hidden;
+      padding: clamp(22px, 4vw, 38px);
+      border: 1px solid rgba(200, 144, 240, 0.24);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(245, 197, 24, 0.18), transparent 30%),
+        linear-gradient(135deg, rgba(18, 10, 38, 0.88), rgba(42, 24, 76, 0.72));
+      color: var(--text);
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .imdb-profile-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.10), transparent 30%, transparent 70%, rgba(200, 144, 240, 0.10)),
+        radial-gradient(circle at 90% 15%, rgba(200, 144, 240, 0.18), transparent 34%);
+    }
+
+    .imdb-profile-card:hover .imdb-profile-action {
+      transform: translateX(4px);
+      border-color: rgba(245, 197, 24, 0.52);
+      color: #f5c518;
+    }
+
+    .imdb-profile-orb {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      bottom: -80px;
+      border-radius: 999px;
+      background: rgba(245, 197, 24, 0.10);
+      filter: blur(2px);
+    }
+
+    .imdb-profile-mark,
+    .imdb-profile-copy,
+    .imdb-profile-action {
+      position: relative;
+      z-index: 1;
+    }
+
+    .imdb-profile-mark {
+      display: grid;
+      place-items: center;
+      width: clamp(86px, 12vw, 118px);
+      height: clamp(86px, 12vw, 118px);
+      border-radius: 26px;
+      background: linear-gradient(135deg, #f5c518, #ffe27a);
+      color: #15100a;
+      font-family: var(--font-body);
+      font-size: clamp(1.25rem, 3vw, 1.8rem);
+      font-weight: 800;
+      letter-spacing: -0.08em;
+      box-shadow: 0 16px 40px rgba(245, 197, 24, 0.18);
+    }
+
+    .imdb-profile-copy {
+      max-width: 680px;
+    }
+
+    .imdb-profile-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0 18px;
+      border: 1px solid rgba(200, 144, 240, 0.28);
+      border-radius: 999px;
+      color: var(--rose);
+      background: rgba(160, 100, 255, 0.10);
+      font-size: 0.86rem;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: transform 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
     .movie-stats-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1186,7 +1275,7 @@
     }
 
     .movie-stat-card small,
-    .movie-csv-status {
+    .movie-live-status {
       color: var(--rose);
       font-size: 0.70rem;
       font-weight: 700;
@@ -1331,7 +1420,7 @@
       margin-bottom: 20px;
     }
 
-    .movie-csv-status {
+    .movie-live-status {
       flex: 0 0 auto;
       max-width: 260px;
       padding: 8px 10px;
@@ -1363,6 +1452,7 @@
       color: var(--muted);
       line-height: 1.65;
     }
+
 
     /* RODAPÉ: texto final que aparece no fim do site. */
     .footer {
@@ -1462,12 +1552,21 @@
         grid-template-columns: 1fr;
       }
 
+      .imdb-profile-card {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+
+      .imdb-profile-action {
+        width: max-content;
+      }
+
       .movie-list-header {
         align-items: stretch;
         flex-direction: column;
       }
 
-      .movie-csv-status {
+      .movie-live-status {
         max-width: none;
         text-align: left;
       }
@@ -1880,30 +1979,45 @@
 
     <!--
       ABA MOVIES / FILMES
-      Esta aba carrega automaticamente o arquivo "imdb csv.csv" do mesmo repositório.
-      Para atualizar os gráficos, basta substituir/atualizar o CSV mantendo o mesmo nome e as mesmas colunas do IMDb.
+      Edite aqui a página de filmes, estatísticas e links do perfil IMDb.
     -->
     <section class="view" data-view="movies">
       <header class="hero movies-hero">
         <div class="hero-content">
           <span class="eyebrow">favorite movies</span>
           <h1><em>My</em> movie diary</h1>
-          <p>A dashboard made from my IMDb export: ratings, genres, decades, runtimes, and the movies I loved most.</p>
+          <p>A personal corner for my ratings, favorite genres, movie eras, runtimes, and the titles I loved most.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://www.imdb.com/user/p.qhomam3d2ckftmtximfp2zcf4a?ref_=ext_shr_lnk" target="_blank" rel="noopener noreferrer">Open my IMDb profile</a>
+          </div>
         </div>
       </header>
 
       <section class="section tight">
+        <a class="imdb-profile-card" href="https://www.imdb.com/user/p.qhomam3d2ckftmtximfp2zcf4a?ref_=ext_shr_lnk" target="_blank" rel="noopener noreferrer" aria-label="Open my IMDb profile">
+          <div class="imdb-profile-orb" aria-hidden="true"></div>
+          <div class="imdb-profile-mark" aria-hidden="true">IMDb</div>
+          <div class="imdb-profile-copy">
+            <span class="section-kicker">movie profile</span>
+            <h2 class="section-title"><em>See my</em> IMDb profile</h2>
+            <p class="section-copy">Open my public movie profile to explore ratings, lists, and the films that caught my attention.</p>
+          </div>
+          <span class="imdb-profile-action">Open profile ↗</span>
+        </a>
+      </section>
+
+      <section class="section tight">
         <div class="section-header">
-          <span class="section-kicker">IMDb CSV</span>
-          <h2 class="section-title"><em>Automatic</em> movie stats</h2>
-          <p class="section-copy">These numbers and charts are loaded from the CSV file in this repository. Update the CSV, and this page updates with it.</p>
+          <span class="section-kicker">movie diary</span>
+          <h2 class="section-title"><em>My</em> movie stats</h2>
+          <p class="section-copy">A visual snapshot of my ratings, favorite genres, most-watched eras, watch time, and highest-rated films.</p>
         </div>
 
         <div class="movie-stats-grid" id="movieStats">
-          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Reading imdb csv.csv</span></article>
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Preparing movie stats</span></article>
           <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Building ratings</span></article>
           <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Finding favorite genres</span></article>
-          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Calculating runtime</span></article>
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Calculating watch time</span></article>
         </div>
       </section>
 
@@ -1922,7 +2036,7 @@
             <div class="movie-chart-header">
               <span class="section-kicker">genres</span>
               <h3>Most watched genres</h3>
-              <p>The genres that show up most often in my watched list.</p>
+              <p>The genres that show up most often in my movie diary.</p>
             </div>
             <div class="movie-horizontal-chart" id="genreChart" aria-label="Most watched genres chart"></div>
           </article>
@@ -1953,13 +2067,13 @@
             <div>
               <span class="section-kicker">top rated</span>
               <h3>My highest rated movies</h3>
-              <p>The list below is generated automatically from my personal rating in the IMDb CSV.</p>
+              <p>A quick look at the movies I rated the highest.</p>
             </div>
-            <span class="movie-csv-status" id="movieCsvMeta">Loading CSV...</span>
+            <span class="movie-live-status" id="movieCsvMeta">Loading movies...</span>
           </div>
 
           <ol class="ranked-list movie-top-list" id="topMoviesList">
-            <li><strong>...</strong><div><h4>Loading movies</h4><p>Reading imdb csv.csv from the repository.</p></div></li>
+            <li><strong>...</strong><div><h4>Loading movies</h4><p>Preparing my movie diary.</p></div></li>
           </ol>
         </article>
       </section>
@@ -3390,7 +3504,7 @@
     const richTranslations = {
       en: {
         "[data-view=\"home\"] .section-title": "<em>Every page</em> holds a piece of me",
-        "[data-view=\"movies\"] .hero h1": "<em>My</em> comfort watchlist",
+        "[data-view=\"movies\"] .hero h1": "<em>My</em> movie diary",
         "[data-view=\"music\"] .hero h1": "<em>My</em> soundtrack",
         "[data-view=\"music\"] .section-title": "<em>One vibe</em> for every version",
         "[data-view=\"study\"] .hero h1": "<em>My</em> focus space",
@@ -3945,10 +4059,14 @@
 
   <script>
     (function () {
+      const CSV_FILE_NAME = "imdb%20csv.csv";
+      const CSV_BASE_PATH = window.location.pathname.replace(/\/(movies\/?)?$/, "/");
       const CSV_FILE_CANDIDATES = [
-        "/imdb%20csv.csv",
-        "./imdb%20csv.csv",
-        "imdb%20csv.csv"
+        `${CSV_BASE_PATH}${CSV_FILE_NAME}`,
+        `/imdb%20csv.csv`,
+        `./imdb%20csv.csv`,
+        `../imdb%20csv.csv`,
+        `imdb%20csv.csv`
       ];
 
       const statsEl = document.getElementById("movieStats");
@@ -3957,7 +4075,7 @@
       const decadeChartEl = document.getElementById("decadeChart");
       const runtimeChartEl = document.getElementById("runtimeChart");
       const topMoviesListEl = document.getElementById("topMoviesList");
-      const movieCsvMetaEl = document.getElementById("movieCsvMeta");
+      const movieMetaEl = document.getElementById("movieCsvMeta");
 
       if (!statsEl || !ratingChartEl || !genreChartEl || !decadeChartEl || !runtimeChartEl || !topMoviesListEl) return;
 
@@ -4071,7 +4189,7 @@
         const hours = Math.round(totalMinutes / 60);
 
         statsEl.innerHTML = `
-          <article class="movie-stat-card"><small>watched</small><strong>${total}</strong><span>titles listed in the CSV</span></article>
+          <article class="movie-stat-card"><small>watched</small><strong>${total}</strong><span>titles in my movie diary</span></article>
           <article class="movie-stat-card"><small>average rating</small><strong>${avgPersonal.toFixed(1)}</strong><span>my average personal score</span></article>
           <article class="movie-stat-card"><small>top genre</small><strong>${escapeHTML(favoriteGenre ? favoriteGenre[0] : "-")}</strong><span>${favoriteGenre ? favoriteGenre[1] : 0} appearances in the list</span></article>
           <article class="movie-stat-card"><small>watch time</small><strong>${hours}h</strong><span>approximate total runtime</span></article>
@@ -4192,15 +4310,15 @@
       function renderError() {
         statsEl.innerHTML = `
           <div class="movie-error-card">
-            Não foi possível carregar o arquivo <strong>imdb csv.csv</strong>. Confirme se ele está no repositório junto do site, com esse nome exato, e se foi publicado junto no deploy.
+            Não foi possível carregar os dados dos filmes agora. Tente novamente em alguns instantes.
           </div>
         `;
         ratingChartEl.innerHTML = "";
         genreChartEl.innerHTML = "";
         decadeChartEl.innerHTML = "";
         runtimeChartEl.innerHTML = "";
-        topMoviesListEl.innerHTML = `<li><strong>!</strong><div><h4>CSV not found</h4><p>Upload imdb csv.csv to the same repository/public folder as this HTML file.</p></div></li>`;
-        if (movieCsvMetaEl) movieCsvMetaEl.textContent = "CSV not loaded";
+        topMoviesListEl.innerHTML = `<li><strong>!</strong><div><h4>Movies unavailable</h4><p>The movie diary could not be loaded right now.</p></div></li>`;
+        if (movieMetaEl) movieMetaEl.textContent = "Movies unavailable";
       }
 
       async function fetchCSV() {
@@ -4214,7 +4332,7 @@
             lastError = error;
           }
         }
-        throw lastError || new Error("CSV not loaded");
+        throw lastError || new Error("Movies unavailable");
       }
 
       async function loadMovies() {
@@ -4224,7 +4342,7 @@
           renderStats(movies);
           renderCharts(movies);
           renderTopMovies(movies);
-          if (movieCsvMetaEl) movieCsvMetaEl.textContent = `${movies.length} titles loaded`;
+          if (movieMetaEl) movieMetaEl.textContent = `${movies.length} titles`;
         } catch (error) {
           renderError();
         }
