@@ -832,8 +832,8 @@
     }
 
 
-    /* ── Home Watched List card header image ── */
-    .portal-card.home-watched-card {
+    /* ── Home card header images ── */
+    .portal-card.home-image-card {
       min-height: 380px;
       align-items: stretch;
       justify-content: flex-start;
@@ -841,7 +841,7 @@
       background: rgba(18, 10, 38, 0.72);
     }
 
-    .portal-card.home-watched-card .home-card-media {
+    .portal-card.home-image-card .home-card-media {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -850,7 +850,7 @@
       background: rgba(20, 12, 40, 0.68);
     }
 
-    .portal-card.home-watched-card .home-card-media img {
+    .portal-card.home-image-card .home-card-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -858,12 +858,12 @@
       transition: transform 260ms ease, filter 260ms ease;
     }
 
-    .portal-card.home-watched-card:hover .home-card-media img {
+    .portal-card.home-image-card:hover .home-card-media img {
       transform: scale(1.055);
       filter: saturate(1.08) brightness(1.04);
     }
 
-    .portal-card.home-watched-card .home-card-media::after {
+    .portal-card.home-image-card .home-card-media::after {
       content: "";
       position: absolute;
       inset: 0;
@@ -873,7 +873,7 @@
         radial-gradient(circle at 82% 18%, rgba(200, 144, 240, 0.20), transparent 34%);
     }
 
-    .portal-card.home-watched-card .card-content {
+    .portal-card.home-image-card .card-content {
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -1624,7 +1624,7 @@
         grid-template-columns: minmax(72px, 0.9fr) minmax(0, 1.2fr) 36px;
       }
 
-      .portal-card.home-watched-card { min-height: 350px; }
+      .portal-card.home-image-card { min-height: 350px; }
 
       .visual-card { min-height: 260px; }
 
@@ -1730,7 +1730,7 @@
       }
 
 
-      .portal-card.home-watched-card { min-height: 320px; }
+      .portal-card.home-image-card { min-height: 320px; }
 
       .card-content {
         padding: 15px;
@@ -1939,7 +1939,7 @@
         -->
         <div class="portal-grid">
           <!-- "In the Loge" — Mary Cassatt, 1878. Domínio público. -->
-          <a class="portal-card no-image home-watched-card" href="/movies/" data-page="movies">
+          <a class="portal-card no-image home-image-card home-watched-card" href="/movies/" data-page="movies">
             <div class="home-card-media">
               <img src="watched image.png" alt="A cozy illustration of a girl watching a movie in a cinema">
             </div>
@@ -1951,7 +1951,10 @@
           </a>
 
           <!-- "Woman with a Lute" — Jan Vermeer, c. 1662. Domínio público. -->
-          <a class="portal-card no-image" href="/music/" data-page="music">
+          <a class="portal-card no-image home-image-card home-music-card" href="/music/" data-page="music">
+            <div class="home-card-media">
+              <img src="music image.png" alt="A cozy music-themed image">
+            </div>
             <div class="card-content">
               <small>soundtrack</small>
               <h3>Favorite music</h3>
@@ -1960,7 +1963,10 @@
           </a>
 
           <!-- "Young Woman Reading" — Camille Corot, 1868. Domínio público. -->
-                    <a class="portal-card no-image" href="/study/" data-page="study">
+                    <a class="portal-card no-image home-image-card home-study-card" href="/study/" data-page="study">
+            <div class="home-card-media">
+              <img src="study image.png" alt="A cozy study-themed image">
+            </div>
             <div class="card-content">
               <small>notes and focus</small>
               <h3>Study</h3>
@@ -1969,7 +1975,10 @@
           </a>
 
           <!-- "The Large Bathers" — Pierre-Auguste Renoir, 1887. Domínio público. -->
-          <a class="portal-card no-image" href="/wellness/" data-page="wellness">
+          <a class="portal-card no-image home-image-card home-wellness-card" href="/wellness/" data-page="wellness">
+            <div class="home-card-media">
+              <img src="wellness image.png" alt="A cozy wellness-themed image">
+            </div>
             <div class="card-content">
               <small>soft reset</small>
               <h3>Wellness</h3>
@@ -1978,7 +1987,10 @@
           </a>
 
           <!-- "Angel" — Hans Memling, c. 1480. Domínio público. -->
-          <a class="portal-card no-image" href="/devotional/" data-page="devotional">
+          <a class="portal-card no-image home-image-card home-devotional-card" href="/devotional/" data-page="devotional">
+            <div class="home-card-media">
+              <img src="devotional image.png" alt="A cozy devotional-themed image">
+            </div>
             <div class="card-content">
               <small>quiet faith</small>
               <h3>Devotional</h3>
@@ -1987,7 +1999,10 @@
           </a>
 
           <!-- Autorretrato de Van Gogh com chapéu de palha, 1887. Domínio público. -->
-          <a class="portal-card no-image" href="/art/" data-page="art">
+          <a class="portal-card no-image home-image-card home-art-card" href="/art/" data-page="art">
+            <div class="home-card-media">
+              <img src="art image.png" alt="A cozy art-themed image">
+            </div>
             <div class="card-content">
               <small>visual diary</small>
               <h3>Art</h3>
@@ -1996,7 +2011,10 @@
           </a>
 
           <!-- "Cats on a Chair" — Henriette Ronner-Knip, c. 1890. Domínio público. -->
-          <a class="portal-card no-image" href="/pets/" data-page="pets">
+          <a class="portal-card no-image home-image-card home-pets-card" href="/pets/" data-page="pets">
+            <div class="home-card-media">
+              <img src="pets image.png" alt="A cozy pets-themed image">
+            </div>
             <div class="card-content">
               <small>soft paws</small>
               <h3>My pets</h3>
@@ -2005,7 +2023,10 @@
           </a>
 
           <!-- "The Veteran in a New Field" — Winslow Homer, 1865. Domínio público. -->
-          <a class="portal-card no-image" href="/youtube/" data-page="youtube">
+          <a class="portal-card no-image home-image-card home-youtube-card" href="/youtube/" data-page="youtube">
+            <div class="home-card-media">
+              <img src="youtube image.png" alt="A cozy YouTube-themed image">
+            </div>
             <div class="card-content">
               <small>videos and channel</small>
               <h3>My YouTube channel</h3>
@@ -2013,7 +2034,10 @@
             </div>
           </a>
 
-          <a class="portal-card no-image" href="/apps/" data-page="apps">
+          <a class="portal-card no-image home-image-card home-apps-card" href="/apps/" data-page="apps">
+            <div class="home-card-media">
+              <img src="apps image.png" alt="A cozy apps-themed image">
+            </div>
             <div class="card-content">
               <small>useful links</small>
               <h3>My Apps</h3>
@@ -2022,7 +2046,10 @@
           </a>
 
           <!-- "Woman Writing a Letter" — Gabriel Metsu, c. 1665. Domínio público. -->
-          <a class="portal-card no-image" href="/thoughts/" data-page="thoughts">
+          <a class="portal-card no-image home-image-card home-thoughts-card" href="/thoughts/" data-page="thoughts">
+            <div class="home-card-media">
+              <img src="thoughts image.png" alt="A cozy thoughts-themed image">
+            </div>
             <div class="card-content">
               <small>thoughts</small>
               <h3>My thoughts</h3>
