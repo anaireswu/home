@@ -1164,6 +1164,206 @@
     .ranked-list h4 { margin: 0 0 4px; font-size: 0.96rem; }
     .ranked-list p { margin: 0; color: var(--muted); line-height: 1.58; font-size: 0.90rem; }
 
+
+    /* ── Movies CSV dashboard ── */
+    .movie-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .movie-stat-card {
+      min-height: 156px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(18px, 3vw, 26px);
+      border: 1px solid rgba(160, 110, 255, 0.18);
+      border-radius: var(--radius);
+      background: rgba(18, 10, 38, 0.72);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .movie-stat-card small,
+    .movie-csv-status {
+      color: var(--rose);
+      font-size: 0.70rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .movie-stat-card strong {
+      margin-top: 12px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300;
+      line-height: 0.95;
+    }
+
+    .movie-stat-card span {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .movie-dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 14px;
+    }
+
+    .movie-chart-card {
+      grid-column: span 6;
+      min-height: 430px;
+    }
+
+    .movie-chart-header {
+      margin-bottom: 22px;
+    }
+
+    .movie-chart-header h3,
+    .movie-list-header h3 {
+      margin: 8px 0 8px;
+    }
+
+    .movie-chart-header p,
+    .movie-list-header p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 0.93rem;
+    }
+
+    .movie-bar-chart {
+      display: flex;
+      align-items: end;
+      gap: 8px;
+      min-height: 250px;
+      padding: 14px 0 0;
+    }
+
+    .movie-bar-item {
+      flex: 1;
+      min-width: 0;
+      display: grid;
+      align-items: end;
+      gap: 9px;
+      height: 250px;
+    }
+
+    .movie-bar-fill {
+      position: relative;
+      min-height: 4px;
+      border: 1px solid rgba(200, 144, 240, 0.20);
+      border-radius: 999px 999px 8px 8px;
+      background: linear-gradient(180deg, rgba(200, 144, 240, 0.92), rgba(95, 80, 224, 0.78));
+      box-shadow: 0 10px 26px rgba(120, 80, 220, 0.22);
+    }
+
+    .movie-bar-fill::before {
+      content: attr(data-value);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 6px);
+      transform: translateX(-50%);
+      color: var(--soft);
+      font-size: 0.72rem;
+      white-space: nowrap;
+    }
+
+    .movie-bar-label {
+      color: var(--muted);
+      font-size: 0.72rem;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .movie-horizontal-chart {
+      display: grid;
+      gap: 12px;
+    }
+
+    .movie-horizontal-row {
+      display: grid;
+      grid-template-columns: minmax(88px, 0.7fr) minmax(0, 1.4fr) 42px;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .movie-horizontal-label {
+      color: var(--text);
+      font-size: 0.86rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .movie-horizontal-track {
+      height: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(200, 144, 240, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .movie-horizontal-fill {
+      height: 100%;
+      min-width: 4px;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(95, 80, 224, 0.86), rgba(200, 144, 240, 0.92));
+    }
+
+    .movie-horizontal-value {
+      color: var(--soft);
+      font-size: 0.78rem;
+      text-align: right;
+    }
+
+    .movie-list-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .movie-csv-status {
+      flex: 0 0 auto;
+      max-width: 260px;
+      padding: 8px 10px;
+      border: 1px solid rgba(200, 144, 240, 0.22);
+      border-radius: 999px;
+      background: rgba(160, 100, 255, 0.10);
+      text-align: right;
+    }
+
+    .movie-top-list li {
+      background: rgba(20, 12, 40, 0.68);
+    }
+
+    .movie-top-list a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .movie-top-list a:hover {
+      color: var(--rose);
+    }
+
+    .movie-error-card {
+      grid-column: 1 / -1;
+      padding: 20px;
+      border: 1px solid rgba(200, 144, 240, 0.26);
+      border-radius: var(--radius);
+      background: rgba(18, 10, 38, 0.72);
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
     /* RODAPÉ: texto final que aparece no fim do site. */
     .footer {
       width: min(1160px, calc(100% - 28px));
@@ -1237,6 +1437,8 @@
       .visual-card { grid-column: span 6; min-height: 280px; }
       .paper       { grid-column: span 6; }
       .text-card   { grid-column: span 6; }
+      .movie-stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .movie-chart-card { grid-column: 1 / -1; }
 
       .section-title {
         font-size: clamp(2rem, 6vw, 3.6rem);
@@ -1254,6 +1456,24 @@
       .paper,
       .text-card {
         grid-column: 1 / -1;
+      }
+
+      .movie-stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .movie-list-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .movie-csv-status {
+        max-width: none;
+        text-align: left;
+      }
+
+      .movie-horizontal-row {
+        grid-template-columns: minmax(72px, 0.9fr) minmax(0, 1.2fr) 36px;
       }
 
       .visual-card { min-height: 260px; }
@@ -1655,64 +1875,91 @@
           </a>
         </div>
       </section>
-
-      <section class="section">
-        <div class="grid">
-          <article class="paper">
-            <span class="section-kicker">moodboard</span>
-            <h3>Small things count too</h3>
-            <p>Not everything needs to be an achievement. Some things just deserve a beautiful place to exist: a comforting movie, a song I repeat all day, a calming note, a prayer I want to remember, or a color palette I can't stop saving.</p>
-          </article>
-          <article class="paper">
-            <span class="section-kicker">right now</span>
-            <h3>Current favorites</h3>
-            <p>A space I can update whenever life changes: movie of the week, album stuck in my head, subject I'm studying, wellness ritual, devotional note, art idea saved for later, a pet memory I don't want to forget, a YouTube update, and an app link.</p>
-          </article>
-        </div>
-      </section>
     </section>
 
 
     <!--
       ABA MOVIES / FILMES
-      Edite aqui os textos, imagens e ranking da página de filmes.
-      Procure por <ol class="ranked-list"> para alterar a lista numerada.
+      Esta aba carrega automaticamente o arquivo "imdb csv.csv" do mesmo repositório.
+      Para atualizar os gráficos, basta substituir/atualizar o CSV mantendo o mesmo nome e as mesmas colunas do IMDb.
     -->
     <section class="view" data-view="movies">
       <header class="hero movies-hero">
         <div class="hero-content">
           <span class="eyebrow">favorite movies</span>
-          <h1><em>My</em> comfort watchlist</h1>
-          <p>A page for the movies I would rewatch without thinking, the ones that leave me quiet after the credits, and the ones with exactly the kind of atmosphere I love.</p>
+          <h1><em>My</em> movie diary</h1>
+          <p>A dashboard made from my IMDb export: ratings, genres, decades, runtimes, and the movies I loved most.</p>
         </div>
       </header>
 
       <section class="section tight">
-        <div class="grid">
-          <!-- "Niña en el palco" — Mary Cassatt, 1882. Domínio público. -->
-          <article class="visual-card no-image">
-            <div class="card-content"><small>comfort</small><h3>To rewatch forever</h3><p>The kind of movie that feels like a blanket: it doesn't need much explaining, it just works.</p></div>
+        <div class="section-header">
+          <span class="section-kicker">IMDb CSV</span>
+          <h2 class="section-title"><em>Automatic</em> movie stats</h2>
+          <p class="section-copy">These numbers and charts are loaded from the CSV file in this repository. Update the CSV, and this page updates with it.</p>
+        </div>
+
+        <div class="movie-stats-grid" id="movieStats">
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Reading imdb csv.csv</span></article>
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Building ratings</span></article>
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Finding favorite genres</span></article>
+          <article class="movie-stat-card"><small>loading</small><strong>...</strong><span>Calculating runtime</span></article>
+        </div>
+      </section>
+
+      <section class="section tight">
+        <div class="movie-dashboard-grid">
+          <article class="paper movie-chart-card">
+            <div class="movie-chart-header">
+              <span class="section-kicker">ratings</span>
+              <h3>My rating distribution</h3>
+              <p>How many titles received each personal IMDb rating.</p>
+            </div>
+            <div class="movie-bar-chart" id="ratingChart" aria-label="My rating distribution chart"></div>
           </article>
-          <!-- "The Opera Box" — Honoré Daumier, c. 1860. Domínio público. -->
-          <article class="visual-card no-image">
-            <div class="card-content"><small>drama</small><h3>To feel everything</h3><p>Stories that stay in my chest and make me stare at the ceiling for a few minutes.</p></div>
+
+          <article class="paper movie-chart-card">
+            <div class="movie-chart-header">
+              <span class="section-kicker">genres</span>
+              <h3>Most watched genres</h3>
+              <p>The genres that show up most often in my watched list.</p>
+            </div>
+            <div class="movie-horizontal-chart" id="genreChart" aria-label="Most watched genres chart"></div>
           </article>
-          <!-- Autorretrato de Van Gogh, 1887. Domínio público. -->
-          <article class="visual-card no-image">
-            <div class="card-content"><small>aesthetic</small><h3>Beautiful scenes</h3><p>Colors, lights, costumes, and frames I would save as a moodboard.</p></div>
+
+          <article class="paper movie-chart-card">
+            <div class="movie-chart-header">
+              <span class="section-kicker">years</span>
+              <h3>Movies by decade</h3>
+              <p>A quick look at the eras I watch the most.</p>
+            </div>
+            <div class="movie-bar-chart" id="decadeChart" aria-label="Movies by decade chart"></div>
+          </article>
+
+          <article class="paper movie-chart-card">
+            <div class="movie-chart-header">
+              <span class="section-kicker">runtime</span>
+              <h3>Runtime mood</h3>
+              <p>Short watches, regular movies, and longer sessions.</p>
+            </div>
+            <div class="movie-horizontal-chart" id="runtimeChart" aria-label="Runtime mood chart"></div>
           </article>
         </div>
       </section>
 
       <section class="section">
-        <article class="paper">
-          <h3>Personal top list</h3>
-          <!-- LISTA DE FILMES: cada <li> é um item do ranking. -->
-          <ol class="ranked-list">
-            <li><strong>01</strong><div><h4>The movie that feels like home</h4><p>The one that quiets everything when the day gets loud.</p></div></li>
-            <li><strong>02</strong><div><h4>The romance I never forget</h4><p>A story with chemistry, beautiful dialogue, and that bittersweet feeling.</p></div></li>
-            <li><strong>03</strong><div><h4>The visually perfect movie</h4><p>The one I would pause just to look at every detail in the scene.</p></div></li>
-            <li><strong>04</strong><div><h4>The one that surprised me</h4><p>The title I started without expecting much, then couldn't stop talking about.</p></div></li>
+        <article class="paper movie-wide-card">
+          <div class="movie-list-header">
+            <div>
+              <span class="section-kicker">top rated</span>
+              <h3>My highest rated movies</h3>
+              <p>The list below is generated automatically from my personal rating in the IMDb CSV.</p>
+            </div>
+            <span class="movie-csv-status" id="movieCsvMeta">Loading CSV...</span>
+          </div>
+
+          <ol class="ranked-list movie-top-list" id="topMoviesList">
+            <li><strong>...</strong><div><h4>Loading movies</h4><p>Reading imdb csv.csv from the repository.</p></div></li>
           </ol>
         </article>
       </section>
@@ -1911,7 +2158,7 @@
       Para cada app, edite: data-app-name, data-app-desc, data-app-category, data-app-icon e href.
     -->
     <section class="view" data-view="apps">
-      <header class="hero apps-hero"><div class="hero-content"><span class="eyebrow">my apps</span><h1><em>My</em> Apps</h1><p>Tools and projects I built — pick one and explore. Each app was made with a purpose in mind.</p></div></header>
+      <header class="hero apps-hero"><div class="hero-content"><span class="eyebrow">my apps</span><h1><em>My</em> Apps</h1><p>Tools and projects I built. Pick one and explore. Each app was made with a purpose in mind.</p></div></header>
       <section class="section tight">
         <div class="section-header">
           <span class="section-kicker">app shelf</span>
@@ -1922,150 +2169,150 @@
         <!-- FILTRO DE CATEGORIAS -->
         <div class="app-filter-bar">
           <button class="app-filter-btn is-active" data-filter="all">All</button>
-          <button class="app-filter-btn" data-filter="study">Study</button>
           <button class="app-filter-btn" data-filter="wellness">Wellness</button>
-          <button class="app-filter-btn" data-filter="creative">Creative</button>
+          <button class="app-filter-btn" data-filter="nutrition">Nutrition</button>
+          <button class="app-filter-btn" data-filter="fitness">Fitness</button>
           <button class="app-filter-btn" data-filter="productivity">Productivity</button>
+          <button class="app-filter-btn" data-filter="creative">Creative</button>
         </div>
 
         <!-- GRID DE APP CARDS -->
         <!-- Para adicionar um app: copie um bloco <a class="app-card"> e edite os atributos data-* e href -->
         <div class="app-grid">
 
-          <a class="app-card" href="#" target="_blank" rel="noopener"
-             data-category="study"
-             data-app-icon="📖"
-             data-app-name="Study Companion"
-             data-app-desc="A focused study tool with timers, notes, and gentle reminders to keep you on track."
-             data-app-label="study">
-            <div class="app-card-glow"></div>
-            <div class="app-card-top">
-              <div class="app-icon-wrap">
-                <span class="app-icon">📖</span>
-              </div>
-              <span class="app-category-badge">Study</span>
-            </div>
-            <div class="app-card-body">
-              <h3 class="app-name">Study Companion</h3>
-              <p class="app-desc">A focused study tool with timers, notes, and gentle reminders to keep you on track.</p>
-            </div>
-            <div class="app-card-footer">
-              <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
-          </a>
-
-          <a class="app-card" href="#" target="_blank" rel="noopener"
+          <a class="app-card" href="https://dailytick.vercel.app/" target="_blank" rel="noopener"
              data-category="wellness"
-             data-app-icon="🌿"
-             data-app-name="Daily Reset"
-             data-app-desc="A soft check-in app for mood, habits, and daily intentions — like a gentle journal in your pocket."
+             data-app-icon="✓"
+             data-app-name="DailyTick"
+             data-app-desc="A simple daily tracker for habits, check-ins, and small wins you want to keep consistent."
              data-app-label="wellness">
             <div class="app-card-glow"></div>
             <div class="app-card-top">
               <div class="app-icon-wrap">
-                <span class="app-icon">🌿</span>
+                <span class="app-icon">✓</span>
               </div>
               <span class="app-category-badge">Wellness</span>
             </div>
             <div class="app-card-body">
-              <h3 class="app-name">Daily Reset</h3>
-              <p class="app-desc">A soft check-in app for mood, habits, and daily intentions — like a gentle journal in your pocket.</p>
+              <h3 class="app-name">DailyTick</h3>
+              <p class="app-desc">A simple daily tracker for habits, check-ins, and small wins you want to keep consistent.</p>
             </div>
             <div class="app-card-footer">
               <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="app-card" href="#" target="_blank" rel="noopener"
-             data-category="creative"
-             data-app-icon="🎨"
-             data-app-name="Palette Builder"
-             data-app-desc="Pick colors, save palettes, and export them instantly. Built for aesthetics and creative projects."
-             data-app-label="creative">
+          <a class="app-card" href="https://loseitpro.vercel.app/" target="_blank" rel="noopener"
+             data-category="wellness"
+             data-app-icon="⚖"
+             data-app-name="LoseIt Pro"
+             data-app-desc="A focused wellness tool for tracking progress, goals, and routines with a clean interface."
+             data-app-label="wellness">
             <div class="app-card-glow"></div>
             <div class="app-card-top">
               <div class="app-icon-wrap">
-                <span class="app-icon">🎨</span>
+                <span class="app-icon">⚖</span>
               </div>
-              <span class="app-category-badge">Creative</span>
+              <span class="app-category-badge">Wellness</span>
             </div>
             <div class="app-card-body">
-              <h3 class="app-name">Palette Builder</h3>
-              <p class="app-desc">Pick colors, save palettes, and export them instantly. Built for aesthetics and creative projects.</p>
+              <h3 class="app-name">LoseIt Pro</h3>
+              <p class="app-desc">A focused wellness tool for tracking progress, goals, and routines with a clean interface.</p>
             </div>
             <div class="app-card-footer">
               <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="app-card" href="#" target="_blank" rel="noopener"
+          <a class="app-card" href="https://eatplanpro.vercel.app/" target="_blank" rel="noopener"
+             data-category="nutrition"
+             data-app-icon="🍽"
+             data-app-name="EatPlan Pro"
+             data-app-desc="A meal planning app for organizing food ideas, plans, and nutrition routines in one place."
+             data-app-label="nutrition">
+            <div class="app-card-glow"></div>
+            <div class="app-card-top">
+              <div class="app-icon-wrap">
+                <span class="app-icon">🍽</span>
+              </div>
+              <span class="app-category-badge">Nutrition</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-name">EatPlan Pro</h3>
+              <p class="app-desc">A meal planning app for organizing food ideas, plans, and nutrition routines in one place.</p>
+            </div>
+            <div class="app-card-footer">
+              <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+
+          <a class="app-card" href="https://moveburn.vercel.app/" target="_blank" rel="noopener"
+             data-category="fitness"
+             data-app-icon="🔥"
+             data-app-name="MoveBurn"
+             data-app-desc="A movement and burn tracker designed to keep activity visible, simple, and motivating."
+             data-app-label="fitness">
+            <div class="app-card-glow"></div>
+            <div class="app-card-top">
+              <div class="app-icon-wrap">
+                <span class="app-icon">🔥</span>
+              </div>
+              <span class="app-category-badge">Fitness</span>
+            </div>
+            <div class="app-card-body">
+              <h3 class="app-name">MoveBurn</h3>
+              <p class="app-desc">A movement and burn tracker designed to keep activity visible, simple, and motivating.</p>
+            </div>
+            <div class="app-card-footer">
+              <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </div>
+          </a>
+
+          <a class="app-card" href="https://mydaymap.vercel.app/" target="_blank" rel="noopener"
              data-category="productivity"
-             data-app-icon="✅"
-             data-app-name="Soft To-Do"
-             data-app-desc="A minimal task list that doesn't stress you out. Just the essentials, beautifully simple."
+             data-app-icon="🗺"
+             data-app-name="My Day Map"
+             data-app-desc="A planning tool for mapping your day, organizing priorities, and keeping the next step clear."
              data-app-label="productivity">
             <div class="app-card-glow"></div>
             <div class="app-card-top">
               <div class="app-icon-wrap">
-                <span class="app-icon">✅</span>
+                <span class="app-icon">🗺</span>
               </div>
               <span class="app-category-badge">Productivity</span>
             </div>
             <div class="app-card-body">
-              <h3 class="app-name">Soft To-Do</h3>
-              <p class="app-desc">A minimal task list that doesn't stress you out. Just the essentials, beautifully simple.</p>
+              <h3 class="app-name">My Day Map</h3>
+              <p class="app-desc">A planning tool for mapping your day, organizing priorities, and keeping the next step clear.</p>
             </div>
             <div class="app-card-footer">
               <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-          <a class="app-card" href="#" target="_blank" rel="noopener"
-             data-category="study"
-             data-app-icon="🔖"
-             data-app-name="Reading Tracker"
-             data-app-desc="Log your books, track progress, write notes, and see how much you've read this year."
-             data-app-label="study">
-            <div class="app-card-glow"></div>
-            <div class="app-card-top">
-              <div class="app-icon-wrap">
-                <span class="app-icon">🔖</span>
-              </div>
-              <span class="app-category-badge">Study</span>
-            </div>
-            <div class="app-card-body">
-              <h3 class="app-name">Reading Tracker</h3>
-              <p class="app-desc">Log your books, track progress, write notes, and see how much you've read this year.</p>
-            </div>
-            <div class="app-card-footer">
-              <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
-          </a>
-
-          <a class="app-card app-card--coming-soon" href="#" tabindex="-1"
+          <a class="app-card" href="https://beadguide.vercel.app/" target="_blank" rel="noopener"
              data-category="creative"
              data-app-icon="✦"
-             data-app-name="Coming soon"
-             data-app-desc="Something new is in the works. Check back later."
+             data-app-name="BeadGuide"
+             data-app-desc="A creative guide for bead ideas, combinations, and handmade inspiration."
              data-app-label="creative">
             <div class="app-card-glow"></div>
             <div class="app-card-top">
               <div class="app-icon-wrap">
                 <span class="app-icon">✦</span>
               </div>
-              <span class="app-category-badge">Soon</span>
+              <span class="app-category-badge">Creative</span>
             </div>
             <div class="app-card-body">
-              <h3 class="app-name">Coming soon</h3>
-              <p class="app-desc">Something new is in the works. Check back later.</p>
+              <h3 class="app-name">BeadGuide</h3>
+              <p class="app-desc">A creative guide for bead ideas, combinations, and handmade inspiration.</p>
             </div>
             <div class="app-card-footer">
-              <span class="app-open-btn app-open-btn--muted">In progress…</span>
+              <span class="app-open-btn">Open app <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
             </div>
           </a>
 
-        </div>
-      </section>
+        </div>      </section>
     </section>
 
     <style>
@@ -3693,6 +3940,297 @@
       }
 
       loadVideoIdeasFromGitHub();
+    })();
+  </script>
+
+  <script>
+    (function () {
+      const CSV_FILE_CANDIDATES = [
+        "/imdb%20csv.csv",
+        "./imdb%20csv.csv",
+        "imdb%20csv.csv"
+      ];
+
+      const statsEl = document.getElementById("movieStats");
+      const ratingChartEl = document.getElementById("ratingChart");
+      const genreChartEl = document.getElementById("genreChart");
+      const decadeChartEl = document.getElementById("decadeChart");
+      const runtimeChartEl = document.getElementById("runtimeChart");
+      const topMoviesListEl = document.getElementById("topMoviesList");
+      const movieCsvMetaEl = document.getElementById("movieCsvMeta");
+
+      if (!statsEl || !ratingChartEl || !genreChartEl || !decadeChartEl || !runtimeChartEl || !topMoviesListEl) return;
+
+      function escapeHTML(value) {
+        return String(value || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#039;");
+      }
+
+      function parseCSV(text) {
+        const rows = [];
+        let row = [];
+        let field = "";
+        let inQuotes = false;
+
+        for (let i = 0; i < text.length; i += 1) {
+          const char = text[i];
+          const next = text[i + 1];
+
+          if (char === '"') {
+            if (inQuotes && next === '"') {
+              field += '"';
+              i += 1;
+            } else {
+              inQuotes = !inQuotes;
+            }
+            continue;
+          }
+
+          if (char === "," && !inQuotes) {
+            row.push(field);
+            field = "";
+            continue;
+          }
+
+          if ((char === "\n" || char === "\r") && !inQuotes) {
+            if (char === "\r" && next === "\n") i += 1;
+            row.push(field);
+            rows.push(row);
+            row = [];
+            field = "";
+            continue;
+          }
+
+          field += char;
+        }
+
+        if (field || row.length) {
+          row.push(field);
+          rows.push(row);
+        }
+
+        const headers = (rows.shift() || []).map((header) => header.trim().replace(/^\uFEFF/, ""));
+        return rows
+          .filter((item) => item.some((cell) => String(cell || "").trim() !== ""))
+          .map((item) => {
+            const entry = {};
+            headers.forEach((header, index) => {
+              entry[header] = item[index] || "";
+            });
+            return entry;
+          });
+      }
+
+      function toNumber(value) {
+        const number = Number(String(value || "").replace(/,/g, "").trim());
+        return Number.isFinite(number) ? number : 0;
+      }
+
+      function average(values) {
+        const valid = values.filter((value) => Number.isFinite(value) && value > 0);
+        if (!valid.length) return 0;
+        return valid.reduce((sum, value) => sum + value, 0) / valid.length;
+      }
+
+      function countBy(items, getter) {
+        return items.reduce((acc, item) => {
+          const key = getter(item);
+          if (!key) return acc;
+          acc[key] = (acc[key] || 0) + 1;
+          return acc;
+        }, {});
+      }
+
+      function topEntries(object, limit) {
+        return Object.entries(object)
+          .sort((a, b) => b[1] - a[1] || String(a[0]).localeCompare(String(b[0])))
+          .slice(0, limit);
+      }
+
+      function renderStats(movies) {
+        const total = movies.length;
+        const avgPersonal = average(movies.map((movie) => toNumber(movie["Your Rating"])));
+        const totalMinutes = movies.reduce((sum, movie) => sum + toNumber(movie["Runtime (mins)"]), 0);
+        const genreCounts = {};
+
+        movies.forEach((movie) => {
+          String(movie.Genres || "")
+            .split(",")
+            .map((genre) => genre.trim())
+            .filter(Boolean)
+            .forEach((genre) => {
+              genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+            });
+        });
+
+        const favoriteGenre = topEntries(genreCounts, 1)[0];
+        const hours = Math.round(totalMinutes / 60);
+
+        statsEl.innerHTML = `
+          <article class="movie-stat-card"><small>watched</small><strong>${total}</strong><span>titles listed in the CSV</span></article>
+          <article class="movie-stat-card"><small>average rating</small><strong>${avgPersonal.toFixed(1)}</strong><span>my average personal score</span></article>
+          <article class="movie-stat-card"><small>top genre</small><strong>${escapeHTML(favoriteGenre ? favoriteGenre[0] : "-")}</strong><span>${favoriteGenre ? favoriteGenre[1] : 0} appearances in the list</span></article>
+          <article class="movie-stat-card"><small>watch time</small><strong>${hours}h</strong><span>approximate total runtime</span></article>
+        `;
+      }
+
+      function renderVerticalChart(container, entries) {
+        const max = Math.max(...entries.map((entry) => entry.value), 1);
+        container.innerHTML = entries.map((entry) => {
+          const height = Math.max((entry.value / max) * 100, entry.value ? 3 : 0);
+          return `
+            <div class="movie-bar-item">
+              <div class="movie-bar-fill" style="height:${height}%" data-value="${entry.value}"></div>
+              <div class="movie-bar-label">${escapeHTML(entry.label)}</div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      function renderHorizontalChart(container, entries) {
+        const max = Math.max(...entries.map((entry) => entry.value), 1);
+        container.innerHTML = entries.map((entry) => {
+          const width = Math.max((entry.value / max) * 100, entry.value ? 3 : 0);
+          return `
+            <div class="movie-horizontal-row">
+              <div class="movie-horizontal-label" title="${escapeHTML(entry.label)}">${escapeHTML(entry.label)}</div>
+              <div class="movie-horizontal-track"><div class="movie-horizontal-fill" style="width:${width}%"></div></div>
+              <div class="movie-horizontal-value">${entry.value}</div>
+            </div>
+          `;
+        }).join("");
+      }
+
+      function renderCharts(movies) {
+        const ratingCounts = countBy(movies, (movie) => {
+          const rating = toNumber(movie["Your Rating"]);
+          return rating > 0 ? String(rating) : "";
+        });
+
+        renderVerticalChart(ratingChartEl, Array.from({ length: 10 }, (_, index) => {
+          const rating = String(index + 1);
+          return { label: rating, value: ratingCounts[rating] || 0 };
+        }));
+
+        const genreCounts = {};
+        movies.forEach((movie) => {
+          String(movie.Genres || "")
+            .split(",")
+            .map((genre) => genre.trim())
+            .filter(Boolean)
+            .forEach((genre) => {
+              genreCounts[genre] = (genreCounts[genre] || 0) + 1;
+            });
+        });
+
+        renderHorizontalChart(genreChartEl, topEntries(genreCounts, 8).map(([label, value]) => ({ label, value })));
+
+        const decadeCounts = countBy(movies, (movie) => {
+          const year = toNumber(movie.Year);
+          if (!year) return "";
+          return `${Math.floor(year / 10) * 10}s`;
+        });
+
+        renderVerticalChart(decadeChartEl, topEntries(decadeCounts, 8)
+          .sort((a, b) => Number(a[0].slice(0, 4)) - Number(b[0].slice(0, 4)))
+          .map(([label, value]) => ({ label, value })));
+
+        const runtimeCounts = {
+          "Under 90 min": 0,
+          "90-119 min": 0,
+          "120-149 min": 0,
+          "150+ min": 0
+        };
+
+        movies.forEach((movie) => {
+          const runtime = toNumber(movie["Runtime (mins)"]);
+          if (!runtime) return;
+          if (runtime < 90) runtimeCounts["Under 90 min"] += 1;
+          else if (runtime < 120) runtimeCounts["90-119 min"] += 1;
+          else if (runtime < 150) runtimeCounts["120-149 min"] += 1;
+          else runtimeCounts["150+ min"] += 1;
+        });
+
+        renderHorizontalChart(runtimeChartEl, Object.entries(runtimeCounts).map(([label, value]) => ({ label, value })));
+      }
+
+      function renderTopMovies(movies) {
+        const sorted = movies
+          .slice()
+          .sort((a, b) => {
+            const ratingDiff = toNumber(b["Your Rating"]) - toNumber(a["Your Rating"]);
+            if (ratingDiff) return ratingDiff;
+            return toNumber(b["IMDb Rating"]) - toNumber(a["IMDb Rating"]);
+          })
+          .slice(0, 10);
+
+        topMoviesListEl.innerHTML = sorted.map((movie, index) => {
+          const number = String(index + 1).padStart(2, "0");
+          const title = movie.Title || movie["Original Title"] || "Untitled";
+          const url = movie.URL || "#";
+          const year = movie.Year ? ` (${escapeHTML(movie.Year)})` : "";
+          const personal = toNumber(movie["Your Rating"]);
+          const imdb = toNumber(movie["IMDb Rating"]);
+          const genres = movie.Genres ? ` • ${escapeHTML(movie.Genres)}` : "";
+
+          return `
+            <li>
+              <strong>${number}</strong>
+              <div>
+                <h4><a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(title)}${year}</a></h4>
+                <p>My rating: ${personal || "-"}/10 • IMDb: ${imdb || "-"}/10${genres}</p>
+              </div>
+            </li>
+          `;
+        }).join("");
+      }
+
+      function renderError() {
+        statsEl.innerHTML = `
+          <div class="movie-error-card">
+            Não foi possível carregar o arquivo <strong>imdb csv.csv</strong>. Confirme se ele está no repositório junto do site, com esse nome exato, e se foi publicado junto no deploy.
+          </div>
+        `;
+        ratingChartEl.innerHTML = "";
+        genreChartEl.innerHTML = "";
+        decadeChartEl.innerHTML = "";
+        runtimeChartEl.innerHTML = "";
+        topMoviesListEl.innerHTML = `<li><strong>!</strong><div><h4>CSV not found</h4><p>Upload imdb csv.csv to the same repository/public folder as this HTML file.</p></div></li>`;
+        if (movieCsvMetaEl) movieCsvMetaEl.textContent = "CSV not loaded";
+      }
+
+      async function fetchCSV() {
+        let lastError;
+        for (const url of CSV_FILE_CANDIDATES) {
+          try {
+            const response = await fetch(url, { cache: "no-store" });
+            if (!response.ok) throw new Error(`Failed to load ${url}`);
+            return { text: await response.text(), url };
+          } catch (error) {
+            lastError = error;
+          }
+        }
+        throw lastError || new Error("CSV not loaded");
+      }
+
+      async function loadMovies() {
+        try {
+          const result = await fetchCSV();
+          const movies = parseCSV(result.text);
+          renderStats(movies);
+          renderCharts(movies);
+          renderTopMovies(movies);
+          if (movieCsvMetaEl) movieCsvMetaEl.textContent = `${movies.length} titles loaded`;
+        } catch (error) {
+          renderError();
+        }
+      }
+
+      loadMovies();
     })();
   </script>
 </body>
