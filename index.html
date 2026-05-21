@@ -3721,13 +3721,14 @@
       }
     };
 
-    // Monta a URL correta de uma aba usando pageRoutes.
+    // Mantém a URL limpa, sem /movies/, /music/ etc.
+    // O site continua trocando de aba por JavaScript, mas a barra de endereço fica no endereço principal.
     function routeFor(page) {
-      const siteBase = "/";
-      return siteBase + (pageRoutes[page] || "");
+      const sectionPattern = new RegExp(`/(?:${pageNames.join("|")})/?$`);
+      return window.location.pathname.replace(sectionPattern, "/");
     }
 
-    // Atualiza os href dos links do menu para ficarem iguais às rotas configuradas.
+    // Atualiza os href dos links do menu para apontarem para o endereço principal do site.
     function syncPageLinks() {
       document.querySelectorAll("a[data-page]").forEach((link) => {
         link.setAttribute("href", routeFor(link.dataset.page));
@@ -3772,23 +3773,24 @@
     }
 
     // Clique nos links internos do menu/cards.
-    // Evita recarregar a página e troca a aba usando JavaScript.
+    // Evita recarregar a página e troca a aba usando JavaScript, sem mudar a URL para /movies/, /music/ etc.
     document.querySelectorAll("a[data-page]").forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
         const page = link.dataset.page;
-        const href = routeFor(page);
         try {
-          window.history.pushState({ page }, "", href);
+          window.history.pushState({ page }, "", routeFor(page));
         } catch (error) {
-          window.location.hash = page;
+          // Se o navegador bloquear a alteração do histórico, a troca de aba continua funcionando.
         }
         showPage(page);
       });
     });
 
-    // Permite usar voltar/avançar do navegador mantendo a aba correta.
-    window.addEventListener("popstate", () => showPage(pageFromPath(), { keepScroll: true }));
+    // Permite usar voltar/avançar do navegador mantendo a aba correta, mesmo com a URL limpa.
+    window.addEventListener("popstate", (event) => {
+      showPage(event.state?.page || pageFromPath(), { keepScroll: true });
+    });
 
     // Aplica textos que têm HTML, como títulos com <em>.
     function applyRichTranslations(lang) {
@@ -3819,6 +3821,14 @@
     // INICIALIZAÇÃO
     // Roda as funções principais assim que a página carrega.
     applyLanguage();
+
+    // Se alguém abrir uma URL antiga como /movies/ ou /music/, mostra a aba correta,
+    // mas limpa a barra de endereço para ficar só no endereço principal do site.
+    try {
+      window.history.replaceState({ page: pageFromPath() }, "", routeFor("home"));
+    } catch (error) {
+      // Em alguns ambientes de teste local, o navegador pode bloquear replaceState.
+    }
 
     // INTERAÇÃO DA ABA YOUTUBE
     // Troca o player entre os uploads mais recentes usando a playlist automática do canal.
